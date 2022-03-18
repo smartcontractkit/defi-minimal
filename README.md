@@ -1,8 +1,8 @@
 # Defi Minimal
 
-This repo is dedicated to making  minimal repos of existing defi primatives. 
+This repo is dedicated to making minimal repos of existing defi primatives. 
 
-![WARNING](https://via.placeholder.com/15/f03c15/000000?text=+) **WARNING: None of the conracts are audited!** ![WARNING](https://via.placeholder.com/15/f03c15/000000?text=+)
+![WARNING](https://via.placeholder.com/15/f03c15/000000?text=+) **WARNING: None of the contracts are audited!** ![WARNING](https://via.placeholder.com/15/f03c15/000000?text=+)
 
 ### Completed minimal contracts:
 - `Lending.sol`: Based off [Aave](https://aave.com/)
