@@ -15,6 +15,7 @@ This repo is dedicated to making minimal repos of existing defi primatives.
 ### Not a minimal contract:
 - `Swap.sol`: Based off [Uniswap](https://uniswap.org/)
 
+# Table Of Contents
 - [Defi Minimal](#defi-minimal)
     - [Completed minimal contracts:](#completed-minimal-contracts)
     - [Uncompleted:](#uncompleted)
