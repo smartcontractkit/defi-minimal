@@ -15,6 +15,23 @@ This repo is dedicated to making  minimal repos of existing defi primatives.
 ### Not a minimal contract:
 - `Swap.sol`: Based off [Uniswap](https://uniswap.org/)
 
+- [Defi Minimal](#defi-minimal)
+    - [Completed minimal contracts:](#completed-minimal-contracts)
+    - [Uncompleted:](#uncompleted)
+    - [Not a minimal contract:](#not-a-minimal-contract)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Quickstart](#quickstart)
+- [Usage](#usage)
+  - [Deploying Contracts](#deploying-contracts)
+  - [Run a Local Network](#run-a-local-network)
+  - [Using a Testnet or Live Network (like Mainnet or Polygon)](#using-a-testnet-or-live-network-like-mainnet-or-polygon)
+    - [Rinkeby Ethereum Testnet Setup](#rinkeby-ethereum-testnet-setup)
+- [Code Formating](#code-formating)
+- [Slither Static Analysis](#slither-static-analysis)
+- [Contributing](#contributing)
+- [Thank You!](#thank-you)
+- [Resources](#resources)
 
 
 # Getting Started 
@@ -165,3 +182,15 @@ You have to do a few steps for slither since right now multiple imports are not 
 ```
 slither ./contracts/ --solc-remaps @openzeppelin/contracts=./node_modules/@openzeppelin/contracts --exclude naming-convention
 ```
+
+# Contributing
+
+Contributions are always welcome! Open a PR or an issue!
+
+# Thank You!
+
+# Resources
+
+- [Chainlink Documentation](https://docs.chain.link/)
+- [Hardhat Documentation](https://hardhat.org/getting-started/)
+- [Solidity by Example](https://solidity-by-example.org/)
