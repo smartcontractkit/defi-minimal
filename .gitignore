@@ -12,3 +12,5 @@ artifacts
 cache
 coverage
 deployments
+
+.DS_Store

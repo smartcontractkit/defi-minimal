@@ -1,0 +1,90 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+\usepackage{witharrows}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Your Paper}
+\author{You}
+
+\begin{document}
+\maketitle
+
+
+\section{Uniswapv1}
+
+\begin{equation}
+   x*y=k \quad  \text{where:} \quad
+   \begin{gathered}
+   x \quad \text{is total amount of asset A} \\
+   y \quad \text{is total amount of asset B} \\
+   k \quad \text{is constant} \\
+    \end{gathered}
+\end{equation}
+
+\begin{equation}
+  (x+\Delta x)*(y-\Delta y)=k \quad  \text{where:} \quad
+  \begin{gathered}
+   x \quad \text{is total amount of asset A} \\
+   \Delta x \quad \text{is sold amount of asset A} \\
+   y \quad \text{is total amount of asset B} \\
+   \Delta y \quad \text{is bought amount of asset B} \\
+   k \quad \text{is constant} \\
+    \end{gathered}
+\end{equation}
+
+\begin{equation}
+\begin{WithArrows}
+x*y = (x+\Delta x)*(y-\Delta y) \\ 
+y-\Delta y = \dfrac{x*y}{x+\Delta x}
+\end{WithArrows}
+\end{equation}
+
+
+\begin{equation}
+\begin{WithArrows}
+\Delta y &= y - \dfrac{x*y}{x+\Delta x} \\
+&= \dfrac{y*(x+\Delta x)}{x+\Delta x} - \dfrac{x*y}{x+\Delta x} \\
+&= \dfrac{y*x +y \Delta x - x*y}{x+\Delta x} \\
+&= \dfrac{y \Delta x}{x+\Delta x}
+\end{WithArrows}
+\end{equation}
+
+Let's consider that \(\Delta x_f\) is the sold amount of asset A \(\Delta x\) minus the fees\\
+\begin{equation}
+\begin{WithArrows}
+   \Delta x_f &= \Delta  x - \Delta x*0,3\% \\
+   &= \Delta x * (1-0,3\%) \\
+   &= \Delta x * (\dfrac{1000}{1000}-\dfrac{3}{1000}) \\
+   &= \Delta x * \dfrac{997}{1000}
+ \end{WithArrows}
+\end{equation}
+
+\begin{equation}
+\begin{WithArrows}
+\Delta y &=  \dfrac{y \Delta x_f}{x+\Delta x_f}
+\end{WithArrows}
+\end{equation}
+
+
+\begin{equation}
+\begin{WithArrows}
+\Delta y &=  \dfrac{y \Delta x_f}{x+\Delta x_f} \\
+&= \dfrac{\dfrac{997*y*\Delta x}{1000}}{x+\dfrac{997*\Delta x}{1000}} \\
+&= \dfrac{997 ’y \Delta x}{1000 x + 997 \Delta x}
+\end{WithArrows}
+\end{equation}
+
+
+\end{document}
