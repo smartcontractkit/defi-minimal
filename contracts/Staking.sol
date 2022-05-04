@@ -24,7 +24,7 @@ contract Staking is ReentrancyGuard {
     mapping(address => uint256) public s_rewards;
 
     uint256 private s_totalSupply;
-    mapping(address => uint256) private s_balances;
+    mapping(address => uint256) public s_balances;
 
     event Staked(address indexed user, uint256 indexed amount);
     event WithdrewStake(address indexed user, uint256 indexed amount);
