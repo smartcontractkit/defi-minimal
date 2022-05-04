@@ -179,10 +179,10 @@ yarn format
 
 # Slither Static Analysis
 
-You have to do a few steps for slither since right now multiple imports are not supported. First, you'll have to copy paste any non opennzepplin imports into the contracts, and then you should be able to run this: 
+You'll need [python](https://www.python.org/downloads/) and [slither](https://github.com/crytic/slither) installed. 
 
 ```
-slither ./contracts/ --solc-remaps @openzeppelin/contracts=./node_modules/@openzeppelin/contracts --exclude naming-convention
+yarn slither
 ```
 
 # Contributing

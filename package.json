@@ -9,7 +9,8 @@
     "lint:fix": "solhint 'contracts/**/*.sol' --fix",
     "format": "prettier --write .",
     "coverage": "hardhat coverage --solcoverjs ./.solcover.js",
-    "fuzzing": "docker run -it --rm -v $PWD:/src trailofbits/eth-security-toolbox"
+    "fuzzing": "docker run -it --rm -v $PWD:/src trailofbits/eth-security-toolbox",
+    "slither":"slither ./contracts/ --solc-remaps '@openzeppelin/contracts=./node_modules/@openzeppelin/contracts @chainlink/contracts=./node_modules/@chainlink/contracts' --exclude naming-convention"
   },
   "devDependencies": {
     "@chainlink/contracts": "^0.4.0",
