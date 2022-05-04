@@ -125,4 +125,8 @@ contract Staking is ReentrancyGuard {
     /********************/
     // Ideally, we'd have getter functions for all our s_ variables we want exposed, and set them all to private.
     // But, for the purpose of this demo, we've left them public for simplicity.
+
+    function getStaked(address account) public view returns (uint256) {
+        return s_balances[account];
+    }
 }
