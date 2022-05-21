@@ -29,7 +29,7 @@ const SECONDS_IN_A_YEAR = 31449600
           })
           describe("rewardPerToken", () => {
               it("Returns the reward amount of 1 token based time spent locked up", async () => {
-                  await rewardToken.approve(staking.address, stakeAmount)
+                  await dai.approve(staking.address, stakeAmount)
                   await staking.stake(stakeAmount)
                   await moveTime(SECONDS_IN_A_DAY)
                   await moveBlocks(1)
@@ -46,7 +46,7 @@ const SECONDS_IN_A_YEAR = 31449600
           })
           describe("stake", () => {
               it("Moves tokens from the user to the staking contract", async () => {
-                  await rewardToken.approve(staking.address, stakeAmount)
+                  await dai.approve(staking.address, stakeAmount)
                   await staking.stake(stakeAmount)
                   await moveTime(SECONDS_IN_A_DAY)
                   await moveBlocks(1)
@@ -57,13 +57,13 @@ const SECONDS_IN_A_YEAR = 31449600
           })
           describe("withdraw", () => {
               it("Moves tokens from the user to the staking contract", async () => {
-                  await rewardToken.approve(staking.address, stakeAmount)
+                  await dai.approve(staking.address, stakeAmount)
                   await staking.stake(stakeAmount)
                   await moveTime(SECONDS_IN_A_DAY)
                   await moveBlocks(1)
-                  const balanceBefore = await rewardToken.balanceOf(deployer.address)
+                  const balanceBefore = await dai.balanceOf(deployer.address)
                   await staking.withdraw(stakeAmount)
-                  const balanceAfter = await rewardToken.balanceOf(deployer.address)
+                  const balanceAfter = await dai.balanceOf(deployer.address)
                   const earned = await staking.earned(deployer.address)
                   const expectedEarned = "8600000"
                   assert.equal(expectedEarned, earned.toString())
@@ -72,7 +72,7 @@ const SECONDS_IN_A_YEAR = 31449600
           })
           describe("claimReward", () => {
               it("Users can claim their rewards", async () => {
-                  await rewardToken.approve(staking.address, stakeAmount)
+                  await dai.approve(staking.address, stakeAmount)
                   await staking.stake(stakeAmount)
                   await moveTime(SECONDS_IN_A_DAY)
                   await moveBlocks(1)
