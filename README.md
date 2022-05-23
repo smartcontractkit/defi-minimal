@@ -2,7 +2,9 @@
 
 This repo is dedicated to making minimal repos of existing defi primatives. 
 
-> ** WARNING None of the contracts are audited! ** 
+
+| :exclamation:  ** WARNING None of the contracts are audited!  |
+|-----------------------------------------|
 
 ### Completed (but unreviewed) minimal contracts:
 - `Lending.sol`: Based off [Aave](https://aave.com/)
