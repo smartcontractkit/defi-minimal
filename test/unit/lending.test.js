@@ -8,7 +8,7 @@ const BTC_UPDATED_PRICE = ethers.utils.parseEther("1.9")
 
 !developmentChains.includes(network.name)
     ? describe.skip
-    : describe("Lending Unit Tests", async function () {
+    : describe("Lending Unit Tests", function () {
           let lending, dai, wbtc, depositAmount, randomToken, player, threshold, wbtcEthPriceFeed
           beforeEach(async () => {
               const accounts = await ethers.getSigners()
