@@ -9,8 +9,8 @@ const SECONDS_IN_A_YEAR = 31449600
 
 !developmentChains.includes(network.name)
     ? describe.skip
-    : describe("Staking Unit Tests", async function () {
-          let staking, rewardToken, deployer, stakeAmount
+    : describe("Staking Unit Tests", function () {
+          let staking, rewardToken, deployer, dai, stakeAmount
           beforeEach(async () => {
               const accounts = await ethers.getSigners()
               deployer = accounts[0]
