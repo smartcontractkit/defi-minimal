@@ -4,6 +4,12 @@ const { ethers } = require("hardhat")
 const DAI_INITIAL_PRICE = ethers.utils.parseEther("0.001") // 1 DAI = $1 & ETH = $1,000
 const BTC_INITIAL_PRICE = ethers.utils.parseEther("2") // 1 WBTC = $2,000 & ETH = $1,000
 const DECIMALS = 18
+const USD_DECIMALS = 18
+
+// We use 8 decimals for USD based currencies
+const ETH_USD_INITIAL_PRICE = ethers.utils.parseUnits("1000", 8) // 1 ETH = $1,000
+const BTC_USD_INITIAL_PRICE = ethers.utils.parseUnits("2000", 8) // 1 BTC = $2,000
+const DAI_USD_INITIAL_PRICE = ethers.utils.parseUnits("1", 8) // 1 DAI = $1
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments
@@ -36,11 +42,37 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
             log: true,
             args: ["Wrapped Bitcoin", "WBTC"],
         })
+        await deploy("WETH", {
+            contract: "MockERC20",
+            from: deployer,
+            log: true,
+            args: ["Wrapped Ethereum", "WETH"],
+        })
         await deploy("RandomToken", {
             contract: "MockERC20",
             from: deployer,
             log: true,
             args: ["Random Token", "RT"],
+        })
+
+        // For stablecoins
+        await deploy("ETHUSDPriceFeed", {
+            contract: "MockV3Aggregator",
+            from: deployer,
+            log: true,
+            args: [USD_DECIMALS, ETH_USD_INITIAL_PRICE],
+        })
+        await deploy("BTCUSDPriceFeed", {
+            contract: "MockV3Aggregator",
+            from: deployer,
+            log: true,
+            args: [USD_DECIMALS, BTC_USD_INITIAL_PRICE],
+        })
+        await deploy("DAIUSDPriceFeed", {
+            contract: "MockV3Aggregator",
+            from: deployer,
+            log: true,
+            args: [USD_DECIMALS, DAI_USD_INITIAL_PRICE],
         })
         log("Mocks Deployed!")
         log("----------------------------------------------------")
