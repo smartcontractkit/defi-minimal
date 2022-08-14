@@ -4,17 +4,28 @@
 // https://github.com/centrehq/centre-tokens/blob/master/contracts/v2/FiatTokenV2.sol
 // https://github.com/centrehq/centre-tokens/blob/master/contracts/v1/FiatTokenV1.sol
 // aka USDC
+
+// This is considered an exogenous, centralized, anchored (pegged), fiat collateralized, low volitility coin
+
+// Collateral: Exogenous
+// Minting: Centralized
+// Value: Anchored (Pegged to USD)
+// Collateral Type: Fiat
+
+// Also sometimes just refered to as "Fiat Collateralized Stablecoin"
+// But maybe a better name would be "FiatCoin"
+
 pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-error CentralizedStablecoin__NotMinter();
-error CentralizedStablecoin__AddressBlacklisted();
-error CentralizedStablecoin__NotZeroAddress();
-error CentralizedStablecoin__AmountMustBeMoreThanZero();
-error CentralizedStablecoin__ExceededMinterAllowance();
-error CentralizedStablecoin__BurnAmountExceedsBalance();
+error CentralizedStableCoin__NotMinter();
+error CentralizedStableCoin__AddressBlacklisted();
+error CentralizedStableCoin__NotZeroAddress();
+error CentralizedStableCoin__AmountMustBeMoreThanZero();
+error CentralizedStableCoin__ExceededMinterAllowance();
+error CentralizedStableCoin__BurnAmountExceedsBalance();
 
 contract CentralizedStableCoin is ERC20Burnable, Ownable {
     mapping(address => bool) internal s_blacklisted;
@@ -30,14 +41,14 @@ contract CentralizedStableCoin is ERC20Burnable, Ownable {
     // Modifiers
     modifier onlyMinters() {
         if (!s_minters[msg.sender]) {
-            revert CentralizedStablecoin__NotMinter();
+            revert CentralizedStableCoin__NotMinter();
         }
         _;
     }
 
     modifier notBlacklisted(address addressToCheck) {
         if (s_blacklisted[addressToCheck]) {
-            revert CentralizedStablecoin__AddressBlacklisted();
+            revert CentralizedStableCoin__AddressBlacklisted();
         }
         _;
     }
@@ -54,16 +65,17 @@ contract CentralizedStableCoin is ERC20Burnable, Ownable {
         returns (bool)
     {
         if (_to == address(0)) {
-            revert CentralizedStablecoin__NotZeroAddress();
+            revert CentralizedStableCoin__NotZeroAddress();
         }
         if (_amount <= 0) {
-            revert CentralizedStablecoin__AmountMustBeMoreThanZero();
+            revert CentralizedStableCoin__AmountMustBeMoreThanZero();
         }
 
         uint256 mintingAllowedAmount = s_minterAllowed[msg.sender];
-        if (_amount <= mintingAllowedAmount) {
-            revert CentralizedStablecoin__ExceededMinterAllowance();
+        if (_amount > mintingAllowedAmount) {
+            revert CentralizedStableCoin__ExceededMinterAllowance();
         }
+        s_minterAllowed[msg.sender] = mintingAllowedAmount - _amount;
         _mint(msg.sender, mintingAllowedAmount);
         return true;
     }
@@ -71,10 +83,10 @@ contract CentralizedStableCoin is ERC20Burnable, Ownable {
     function burn(uint256 _amount) public override onlyMinters notBlacklisted(msg.sender) {
         uint256 balance = balanceOf(msg.sender);
         if (_amount <= 0) {
-            revert CentralizedStablecoin__AmountMustBeMoreThanZero();
+            revert CentralizedStableCoin__AmountMustBeMoreThanZero();
         }
         if (balance < _amount) {
-            revert CentralizedStablecoin__BurnAmountExceedsBalance();
+            revert CentralizedStableCoin__BurnAmountExceedsBalance();
         }
         _burn(msg.sender, _amount);
     }

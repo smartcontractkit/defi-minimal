@@ -11,18 +11,21 @@ This repo is dedicated to making minimal repos of existing defi primatives.
 - `Staking.sol`: Based off [Synthetix](https://synthetix.io/)
 - `RewardToken.sol`: Based off [Synthetix](https://synthetix.io/)
 - `Exchange.sol` , `Factory.sol` , `Token.sol` : Based off [Uniswap v1](https://docs.uniswap.org/protocol/V1/introduction). The used pricing formula is documented [here](./docs/uniswap-v1/)
+- `DecentralizedStableCoin`: Based off DAI/RAI
+- `CentralizedStableCoin`: Based off USDC
 
 ### Uncompleted:
 - `Options.sol`: Based off nothing
 
 ### Not a minimal contract:
-- `Swap.sol`: Based off [Uniswap](https://uniswap.org/)
+- `Swap.sol`: Based off [Uniswap](https://uniswap.org/) - shows how a smart contract can integrate with a Uniswap-like dex. 
 
 # Table Of Contents
 - [Defi Minimal](#defi-minimal)
-    - [Completed minimal contracts:](#completed-minimal-contracts)
+    - [Completed (but unreviewed) minimal contracts:](#completed-but-unreviewed-minimal-contracts)
     - [Uncompleted:](#uncompleted)
     - [Not a minimal contract:](#not-a-minimal-contract)
+- [Table Of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
   - [Requirements](#requirements)
   - [Quickstart](#quickstart)
