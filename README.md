@@ -11,7 +11,7 @@ This repo is dedicated to making minimal repos of existing defi primatives.
 - `Staking.sol`: Based off [Synthetix](https://synthetix.io/)
 - `RewardToken.sol`: Based off [Synthetix](https://synthetix.io/)
 - `Exchange.sol` , `Factory.sol` , `Token.sol` : Based off [Uniswap v1](https://docs.uniswap.org/protocol/V1/introduction). The used pricing formula is documented [here](./docs/uniswap-v1/)
-- `DecentralizedStableCoin`: Based off DAI/RAI
+- `DecentralizedStableCoin`: Based off DAI
 - `CentralizedStableCoin`: Based off USDC
 
 ### Uncompleted:
