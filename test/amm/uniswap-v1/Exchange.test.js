@@ -1,12 +1,5 @@
-require("@nomiclabs/hardhat-waffle")
 const { expect } = require("chai")
-
-const toWei = (value) => ethers.utils.parseEther(value.toString())
-
-const fromWei = (value) =>
-    ethers.utils.formatEther(typeof value === "string" ? value : value.toString())
-
-const getBalance = ethers.provider.getBalance
+const { toWei, fromWei, getBalance } = require("../../../utils/shared")
 
 const getAmount = (inputAmount, inputReserve, outputReserve) => {
     const inputAmountLessFees = inputAmount.mul(997).div(1000)
