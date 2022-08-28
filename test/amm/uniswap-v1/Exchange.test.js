@@ -1,4 +1,3 @@
-require("@nomiclabs/hardhat-waffle")
 const { expect } = require("chai")
 
 const toWei = (value) => ethers.utils.parseEther(value.toString())

@@ -72,7 +72,7 @@ const BTC_UPDATED_PRICE = ethers.utils.parseEther("1.9")
                   await randomToken.approve(lending.address, depositAmount)
                   await expect(
                       lending.deposit(randomToken.address, depositAmount)
-                  ).to.be.revertedWith("TokenNotAllowed")
+                  ).to.be.revertedWithCustomError(lending, "TokenNotAllowed")
               })
           })
           describe("Withdraw", function () {

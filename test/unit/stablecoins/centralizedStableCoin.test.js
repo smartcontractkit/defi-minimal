@@ -21,7 +21,10 @@ const { developmentChains } = require("../../../helper-hardhat-config")
               await blacklistTx.wait(1)
               await expect(
                   centralizedStableCoin.transfer(blackListedAccount.address, transferAmount)
-              ).to.be.revertedWith("CentralizedStableCoin__AddressBlacklisted()")
+              ).to.be.revertedWithCustomError(
+                  centralizedStableCoin,
+                  "CentralizedStableCoin__AddressBlacklisted"
+              )
           })
 
           it("allows minters to mint", async function () {
@@ -47,7 +50,10 @@ const { developmentChains } = require("../../../helper-hardhat-config")
               await centralizedStableCoin.connect(badActor)
               await expect(
                   centralizedStableCoin.mint(deployer.address, mintAmount)
-              ).to.be.revertedWith("CentralizedStableCoin__NotMinter()")
+              ).to.be.revertedWithCustomError(
+                  centralizedStableCoin,
+                  "CentralizedStableCoin__NotMinter"
+              )
           })
           it("Can burn", async function () {
               // Arrange
