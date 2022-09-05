@@ -18,3 +18,4 @@ deployments
 .article.md 
 contracts/stablecoins/README.md
 
+yarn-error.log
