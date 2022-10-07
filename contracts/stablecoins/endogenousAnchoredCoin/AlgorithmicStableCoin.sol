@@ -5,11 +5,11 @@
 // This is considered an Endogenous, Decentralized, Reflexive, Crypto Collateralized low volitility coin
 
 // Collateral: Endogenous
-// Minting: Decentralized
-// Value: Reflexive
+// Minting (Stability Mechanism): Decentralized (Algorithmic)
+// Value (Relative Stability): Anchored (Pegged to USD)
 // Collateral Type: Crypto
 
-// Sometimes just refered to as "Algorithmic Stablecoin"
+// Sometimes just refered to as "Algorithmic Stablecoin" since it uses endogenous collateral
 
 // But maybe a better name would be EndoDrCCoin (EndoDocCoin?), or maybe like "RobertsCoin" or something after the Sam Roberts paper...
 // We should fix the name as a community

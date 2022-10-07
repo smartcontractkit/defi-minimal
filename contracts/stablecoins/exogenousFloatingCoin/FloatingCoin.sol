@@ -6,8 +6,8 @@
 // This is considered an Exogenous, Decentralized, Indexed, Crypto Collateralized low volitility coin
 
 // Collateral: Exogenous
-// Minting: Decentralized
-// Value: Index (Consumer Index Based Currency)
+// Minting (Stability Mechanism):: Decentralized (Algorithmic)
+// Value (Stability Mechanism): Floating (Consumer Index Based Currency)
 // Collateral Type: Crypto
 
 pragma solidity ^0.8.7;

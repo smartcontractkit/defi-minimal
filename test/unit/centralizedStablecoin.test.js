@@ -20,7 +20,7 @@ const { developmentChains } = require("../../helper-hardhat-config")
               await blacklistTx.wait(1)
               await expect(
                   centralizedStablecoin.transfer(blackListedAccount.address, transferAmount)
-              ).to.be.revertedWith("CentralizedStablecoin__AddressBlacklisted()")
+              ).to.be.revertedWith("CentralizedStableCoin__AddressBlacklisted()")
           })
 
           // incomplete

@@ -5,8 +5,8 @@
 // This is considered an Exogenous, Decentralized, Anchored (pegged), Crypto Collateralized low volitility coin
 
 // Collateral: Exogenous
-// Minting: Decentralized
-// Value: Anchored (Pegged to USD)
+// Minting (Stability Mechanism): Decentralized (Algorithmic)
+// Value (Relative Stability): Anchored (Pegged to USD)
 // Collateral Type: Crypto
 
 // ExoDRCCoin... Which I'm going to call ExoDaCCoin... ExoDac?
