@@ -55,7 +55,7 @@ const SECONDS_IN_A_YEAR = 31449600
               })
           })
           describe("withdraw", () => {
-              it("Moves tokens from the user to the staking contract", async () => {
+              it("Moves tokens from the staking contract to the user", async () => {
                   await rewardToken.approve(staking.address, stakeAmount)
                   await staking.stake(stakeAmount)
                   await moveTime(SECONDS_IN_A_DAY)
