@@ -88,7 +88,7 @@ contract CentralizedStableCoin is ERC20Burnable, Ownable {
         if (balance < _amount) {
             revert CentralizedStableCoin__BurnAmountExceedsBalance();
         }
-        _burn(msg.sender, _amount);
+        _burn(_msgSender(), _amount);
     }
 
     /***************************/
